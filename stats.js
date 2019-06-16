@@ -90,7 +90,7 @@ class Explorer {
        upper.appendChild(document.createTextNode(stat_strings.upper))
 
        var stat_chunk = document.createElement("div")
-       stat_chunk.style.fontSize = "22px"
+       stat_chunk.style.fontSize = "26px"
        stat_chunk.id = this.name + "-stat-" + stat_index
        stat_chunk.appendChild(lower)
        stat_chunk.appendChild(current)
@@ -98,6 +98,8 @@ class Explorer {
 
        var decrement_button = document.createElement("button")
        decrement_button.innerHTML = "-"
+       decrement_button.style.paddingLeft = "12px"
+       decrement_button.style.paddingRight = "12px"
        var t = this
        decrement_button.addEventListener("click", function() {
            t.decrease_stat(stat_index)
@@ -108,6 +110,8 @@ class Explorer {
 
        var increment_button = document.createElement("button")
        increment_button.innerHTML = "+"
+       increment_button.style.paddingLeft = "12px"
+       increment_button.style.paddingRight = "12px"
        var t = this
        increment_button.addEventListener("click", function() {
            t.increase_stat(stat_index)
