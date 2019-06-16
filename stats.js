@@ -90,6 +90,7 @@ class Explorer {
        upper.appendChild(document.createTextNode(stat_strings.upper))
 
        var stat_chunk = document.createElement("div")
+       stat_chunk.style.fontSize = "22px"
        stat_chunk.id = this.name + "-stat-" + stat_index
        stat_chunk.appendChild(lower)
        stat_chunk.appendChild(current)
@@ -121,13 +122,13 @@ class Explorer {
 
    get_explorer_div() {
        var div = document.createElement("div")
-       var name = document.createElement("p")
-       name.style.fontWeight = "bold"
+       var name = document.createElement("h3")
        name.appendChild(document.createTextNode(this.name))
        div.appendChild(name)
 
        Object.keys(STATS_TO_INDEX).forEach(item => {
-           var stat_name = document.createElement("p").appendChild(document.createTextNode(item))
+           var stat_name = document.createElement("h5")
+           stat_name.appendChild(document.createTextNode(item))
            var stat_chunk = this.get_stat_chunk(STATS_TO_INDEX[item])
 
            div.appendChild(stat_name)
@@ -139,75 +140,77 @@ class Explorer {
     
 }
 
+const deathstring = "_\uD83D\uDC80_"
+
 function create_explorers() {
     var explorers_raw = [
         [
             "Heather Granville",
             [
-                ["\uD83D\uDC80", 3, 3, 4, 5, 6, 6, 7, 8],
-                ["\uD83D\uDC80", 3, 3, 3, 4, 5, 6, 7, 8],
-                ["\uD83D\uDC80", 3, 3, 3, 4, 5, 6, 6, 6],
-                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 6, 7, 8]
+                [deathstring, 3, 3, 4, 5, 6, 6, 7, 8],
+                [deathstring, 3, 3, 3, 4, 5, 6, 7, 8],
+                [deathstring, 3, 3, 3, 4, 5, 6, 6, 6],
+                [deathstring, 2, 3, 3, 4, 5, 6, 7, 8]
             ], 
             [3, 3, 3, 5]
         ],
         [
             "Ox Bellows",
             [
-                ["\uD83D\uDC80", 2, 2, 2, 3, 4, 5, 5, 6],
-                ["\uD83D\uDC80", 4, 5, 5, 6, 6, 7, 8, 8],
-                ["\uD83D\uDC80", 2, 2, 3, 4, 5, 5, 6, 7],
-                ["\uD83D\uDC80", 2, 2, 3, 3, 5, 5, 6, 6]
+                [deathstring, 2, 2, 2, 3, 4, 5, 5, 6],
+                [deathstring, 4, 5, 5, 6, 6, 7, 8, 8],
+                [deathstring, 2, 2, 3, 4, 5, 5, 6, 7],
+                [deathstring, 2, 2, 3, 3, 5, 5, 6, 6]
             ],
             [5, 3, 3, 3]
         ],
         [
             "Father Rhinehardt",
             [
-                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 6, 7, 7],
-                ["\uD83D\uDC80", 1, 2, 2, 4, 4, 5, 5, 7],
-                ["\uD83D\uDC80", 3, 4, 5, 5, 6, 7, 7, 8],
-                ["\uD83D\uDC80", 1, 3, 3, 4, 5, 6, 6, 8]
+                [deathstring, 2, 3, 3, 4, 5, 6, 7, 7],
+                [deathstring, 1, 2, 2, 4, 4, 5, 5, 7],
+                [deathstring, 3, 4, 5, 5, 6, 7, 7, 8],
+                [deathstring, 1, 3, 3, 4, 5, 6, 6, 8]
             ],
             [3, 3, 5, 4]
         ],
         [
             "Peter Akimoto",
             [
-                ["\uD83D\uDC80", 3, 3, 3, 4, 6, 6, 7, 7],
-                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 5, 6, 8],
-                ["\uD83D\uDC80", 3, 4, 4, 4, 5, 6, 6, 7],
-                ["\uD83D\uDC80", 3, 4, 4, 5, 6, 7, 7, 8]
+                [deathstring, 3, 3, 3, 4, 6, 6, 7, 7],
+                [deathstring, 2, 3, 3, 4, 5, 5, 6, 8],
+                [deathstring, 3, 4, 4, 4, 5, 6, 6, 7],
+                [deathstring, 3, 4, 4, 5, 6, 7, 7, 8]
             ],
             [4, 3, 4, 3]
         ],
         [
             "Missy Dubourde",
             [
-                ["\uD83D\uDC80", 3, 4, 5, 6, 6, 6, 7, 7],
-                ["\uD83D\uDC80", 2, 3, 3, 3, 4, 5, 6, 7],
-                ["\uD83D\uDC80", 1, 2, 3, 4, 5, 5, 6, 7],
-                ["\uD83D\uDC80", 2, 3, 4, 4, 5, 6, 6, 6]
+                [deathstring, 3, 4, 5, 6, 6, 6, 7, 7],
+                [deathstring, 2, 3, 3, 3, 4, 5, 6, 7],
+                [deathstring, 1, 2, 3, 4, 5, 5, 6, 7],
+                [deathstring, 2, 3, 4, 4, 5, 6, 6, 6]
             ],
             [3, 4, 3, 4]
         ],
         [
             "Madame Zostra",
             [
-                ["\uD83D\uDC80", 2, 3, 3, 5, 5, 6, 6, 7],
-                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 5, 5, 6],
-                ["\uD83D\uDC80", 4, 4, 4, 5, 6, 7, 8, 8],
-                ["\uD83D\uDC80", 1, 3, 4, 4, 4, 5, 6, 6]
+                [deathstring, 2, 3, 3, 5, 5, 6, 6, 7],
+                [deathstring, 2, 3, 3, 4, 5, 5, 5, 6],
+                [deathstring, 4, 4, 4, 5, 6, 7, 8, 8],
+                [deathstring, 1, 3, 4, 4, 4, 5, 6, 6]
             ],
             [3, 4, 3, 4]
         ],
         [
             "Darrin \"Flash\" Williams",
             [
-                ["\uD83D\uDC80", 4, 4, 4, 5, 6, 7, 7, 8],
-                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 6, 6, 7],
-                ["\uD83D\uDC80", 1, 2, 3, 4, 5, 5, 5, 7],
-                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 5, 5, 7]
+                [deathstring, 4, 4, 4, 5, 6, 7, 7, 8],
+                [deathstring, 2, 3, 3, 4, 5, 6, 6, 7],
+                [deathstring, 1, 2, 3, 4, 5, 5, 5, 7],
+                [deathstring, 2, 3, 3, 4, 5, 5, 5, 7]
             ],
             [5, 3, 3, 3]
         ]
