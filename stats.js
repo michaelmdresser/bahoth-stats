@@ -10,6 +10,27 @@ const STATS_TO_INDEX = {
     "Knowledge": 3
 }
 
+// https://stackoverflow.com/questions/29462958/unicode-characters-not-rendering-properly-in-html5-canvas
+function toUTF16(codePoint) {
+    var TEN_BITS = parseInt('1111111111', 2);
+    function u(codeUnit) {
+        return '\\u'+codeUnit.toString(16).toUpperCase();
+    }
+
+    if (codePoint <= 0xFFFF) {
+        return u(codePoint);
+    }
+    codePoint -= 0x10000;
+
+    // Shift right to get to most significant 10 bits
+    var leadSurrogate = 0xD800 + (codePoint >> 10);
+
+    // Mask to get least significant 10 bits
+    var tailSurrogate = 0xDC00 + (codePoint & TEN_BITS);
+
+    return u(leadSurrogate) + u(tailSurrogate);
+}
+
 class Explorer {
     constructor(
         name,
@@ -123,70 +144,70 @@ function create_explorers() {
         [
             "Heather Granville",
             [
-                ["DEAD", 3, 3, 4, 5, 6, 6, 7, 8],
-                ["DEAD", 3, 3, 3, 4, 5, 6, 7, 8],
-                ["DEAD", 3, 3, 3, 4, 5, 6, 6, 6],
-                ["DEAD", 2, 3, 3, 4, 5, 6, 7, 8]
+                ["\uD83D\uDC80", 3, 3, 4, 5, 6, 6, 7, 8],
+                ["\uD83D\uDC80", 3, 3, 3, 4, 5, 6, 7, 8],
+                ["\uD83D\uDC80", 3, 3, 3, 4, 5, 6, 6, 6],
+                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 6, 7, 8]
             ], 
             [3, 3, 3, 5]
         ],
         [
             "Ox Bellows",
             [
-                ["DEAD", 2, 2, 2, 3, 4, 5, 5, 6],
-                ["DEAD", 4, 5, 5, 6, 6, 7, 8, 8],
-                ["DEAD", 2, 2, 3, 4, 5, 5, 6, 7],
-                ["DEAD", 2, 2, 3, 3, 5, 5, 6, 6]
+                ["\uD83D\uDC80", 2, 2, 2, 3, 4, 5, 5, 6],
+                ["\uD83D\uDC80", 4, 5, 5, 6, 6, 7, 8, 8],
+                ["\uD83D\uDC80", 2, 2, 3, 4, 5, 5, 6, 7],
+                ["\uD83D\uDC80", 2, 2, 3, 3, 5, 5, 6, 6]
             ],
             [5, 3, 3, 3]
         ],
         [
             "Father Rhinehardt",
             [
-                ["DEAD", 2, 3, 3, 4, 5, 6, 7, 7],
-                ["DEAD", 1, 2, 2, 4, 4, 5, 5, 7],
-                ["DEAD", 3, 4, 5, 5, 6, 7, 7, 8],
-                ["DEAD", 1, 3, 3, 4, 5, 6, 6, 8]
+                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 6, 7, 7],
+                ["\uD83D\uDC80", 1, 2, 2, 4, 4, 5, 5, 7],
+                ["\uD83D\uDC80", 3, 4, 5, 5, 6, 7, 7, 8],
+                ["\uD83D\uDC80", 1, 3, 3, 4, 5, 6, 6, 8]
             ],
             [3, 3, 5, 4]
         ],
         [
             "Peter Akimoto",
             [
-                ["DEAD", 3, 3, 3, 4, 6, 6, 7, 7],
-                ["DEAD", 2, 3, 3, 4, 5, 5, 6, 8],
-                ["DEAD", 3, 4, 4, 4, 5, 6, 6, 7],
-                ["DEAD", 3, 4, 4, 5, 6, 7, 7, 8]
+                ["\uD83D\uDC80", 3, 3, 3, 4, 6, 6, 7, 7],
+                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 5, 6, 8],
+                ["\uD83D\uDC80", 3, 4, 4, 4, 5, 6, 6, 7],
+                ["\uD83D\uDC80", 3, 4, 4, 5, 6, 7, 7, 8]
             ],
             [4, 3, 4, 3]
         ],
         [
             "Missy Dubourde",
             [
-                ["DEAD", 3, 4, 5, 6, 6, 6, 7, 7],
-                ["DEAD", 2, 3, 3, 3, 4, 5, 6, 7],
-                ["DEAD", 1, 2, 3, 4, 5, 5, 6, 7],
-                ["DEAD", 2, 3, 4, 4, 5, 6, 6, 6]
+                ["\uD83D\uDC80", 3, 4, 5, 6, 6, 6, 7, 7],
+                ["\uD83D\uDC80", 2, 3, 3, 3, 4, 5, 6, 7],
+                ["\uD83D\uDC80", 1, 2, 3, 4, 5, 5, 6, 7],
+                ["\uD83D\uDC80", 2, 3, 4, 4, 5, 6, 6, 6]
             ],
             [3, 4, 3, 4]
         ],
         [
             "Madame Zostra",
             [
-                ["DEAD", 2, 3, 3, 5, 5, 6, 6, 7],
-                ["DEAD", 2, 3, 3, 4, 5, 5, 5, 6],
-                ["DEAD", 4, 4, 4, 5, 6, 7, 8, 8],
-                ["DEAD", 1, 3, 4, 4, 4, 5, 6, 6]
+                ["\uD83D\uDC80", 2, 3, 3, 5, 5, 6, 6, 7],
+                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 5, 5, 6],
+                ["\uD83D\uDC80", 4, 4, 4, 5, 6, 7, 8, 8],
+                ["\uD83D\uDC80", 1, 3, 4, 4, 4, 5, 6, 6]
             ],
             [3, 4, 3, 4]
         ],
         [
             "Darrin \"Flash\" Williams",
             [
-                ["DEAD", 4, 4, 4, 5, 6, 7, 7, 8],
-                ["DEAD", 2, 3, 3, 4, 5, 6, 6, 7],
-                ["DEAD", 1, 2, 3, 4, 5, 5, 5, 7],
-                ["DEAD", 2, 3, 3, 4, 5, 5, 5, 7]
+                ["\uD83D\uDC80", 4, 4, 4, 5, 6, 7, 7, 8],
+                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 6, 6, 7],
+                ["\uD83D\uDC80", 1, 2, 3, 4, 5, 5, 5, 7],
+                ["\uD83D\uDC80", 2, 3, 3, 4, 5, 5, 5, 7]
             ],
             [5, 3, 3, 3]
         ]
