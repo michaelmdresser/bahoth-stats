@@ -101,6 +101,7 @@ class Explorer {
    get_explorer_div() {
        var div = document.createElement("div")
        var name = document.createElement("p")
+       name.style.fontWeight = "bold"
        name.appendChild(document.createTextNode(this.name))
        div.appendChild(name)
 
@@ -127,7 +128,8 @@ function create_explorers() {
                 ["DEAD", 3, 3, 3, 4, 5, 6, 6, 6],
                 ["DEAD", 2, 3, 3, 4, 5, 6, 7, 8]
             ], 
-            [2, 2, 2, 4]],
+            [3, 3, 3, 5]
+        ],
         [
             "Ox Bellows",
             [
@@ -136,7 +138,57 @@ function create_explorers() {
                 ["DEAD", 2, 2, 3, 4, 5, 5, 6, 7],
                 ["DEAD", 2, 2, 3, 3, 5, 5, 6, 6]
             ],
-            [4, 2, 2, 2]
+            [5, 3, 3, 3]
+        ],
+        [
+            "Father Rhinehardt",
+            [
+                ["DEAD", 2, 3, 3, 4, 5, 6, 7, 7],
+                ["DEAD", 1, 2, 2, 4, 4, 5, 5, 7],
+                ["DEAD", 3, 4, 5, 5, 6, 7, 7, 8],
+                ["DEAD", 1, 3, 3, 4, 5, 6, 6, 8]
+            ],
+            [3, 3, 5, 4]
+        ],
+        [
+            "Peter Akimoto",
+            [
+                ["DEAD", 3, 3, 3, 4, 6, 6, 7, 7],
+                ["DEAD", 2, 3, 3, 4, 5, 5, 6, 8],
+                ["DEAD", 3, 4, 4, 4, 5, 6, 6, 7],
+                ["DEAD", 3, 4, 4, 5, 6, 7, 7, 8]
+            ],
+            [4, 3, 4, 3]
+        ],
+        [
+            "Missy Dubourde",
+            [
+                ["DEAD", 3, 4, 5, 6, 6, 6, 7, 7],
+                ["DEAD", 2, 3, 3, 3, 4, 5, 6, 7],
+                ["DEAD", 1, 2, 3, 4, 5, 5, 6, 7],
+                ["DEAD", 2, 3, 4, 4, 5, 6, 6, 6]
+            ],
+            [3, 4, 3, 4]
+        ],
+        [
+            "Madame Zostra",
+            [
+                ["DEAD", 2, 3, 3, 5, 5, 6, 6, 7],
+                ["DEAD", 2, 3, 3, 4, 5, 5, 5, 6],
+                ["DEAD", 4, 4, 4, 5, 6, 7, 8, 8],
+                ["DEAD", 1, 3, 4, 4, 4, 5, 6, 6]
+            ],
+            [3, 4, 3, 4]
+        ],
+        [
+            "Darrin \"Flash\" Williams",
+            [
+                ["DEAD", 4, 4, 4, 5, 6, 7, 7, 8],
+                ["DEAD", 2, 3, 3, 4, 5, 6, 6, 7],
+                ["DEAD", 1, 2, 3, 4, 5, 5, 5, 7],
+                ["DEAD", 2, 3, 3, 4, 5, 5, 5, 7]
+            ],
+            [5, 3, 3, 3]
         ]
     ]
 
@@ -153,4 +205,6 @@ var explorers = create_explorers()
 
 explorers.forEach(e => {
     document.body.appendChild(e.get_explorer_div())
+    document.body.appendChild(document.createElement("br"))
+    document.body.appendChild(document.createElement("br"))
 })
