@@ -24,10 +24,7 @@ class Explorer {
    }
 
    increase_stat(stat_index) {
-       console.log(this.stat_arrays)
-       console.log(this.stat_arrays[stat_index])
-       console.log(this.current_index_array[stat_index])
-       if (this.stat_arrays[stat_index][this.current_index_array[stat_index]] < this.stat_arrays[stat_index].length) {
+       if (this.current_index_array[stat_index] < this.stat_arrays[stat_index].length - 1) {
            console.log("increasing")
            this.current_index_array[stat_index] += 1
        }
@@ -125,19 +122,19 @@ function create_explorers() {
         [
             "Heather Granville",
             [
-                [3, 3, 4, 5, 6, 6, 7, 8],
-                [3, 3, 3, 4, 5, 6, 7, 8],
-                [3, 3, 3, 4, 5, 6, 6, 6],
-                [2, 3, 3, 4, 5, 6, 7, 8]
+                ["DEAD", 3, 3, 4, 5, 6, 6, 7, 8],
+                ["DEAD", 3, 3, 3, 4, 5, 6, 7, 8],
+                ["DEAD", 3, 3, 3, 4, 5, 6, 6, 6],
+                ["DEAD", 2, 3, 3, 4, 5, 6, 7, 8]
             ], 
             [2, 2, 2, 4]],
         [
             "Ox Bellows",
             [
-                [2, 2, 2, 3, 4, 5, 5, 6],
-                [4, 5, 5, 6, 6, 7, 8, 8],
-                [2, 2, 3, 4, 5, 5, 6, 7],
-                [2, 2, 3, 3, 5, 5, 6, 6]
+                ["DEAD", 2, 2, 2, 3, 4, 5, 5, 6],
+                ["DEAD", 4, 5, 5, 6, 6, 7, 8, 8],
+                ["DEAD", 2, 2, 3, 4, 5, 5, 6, 7],
+                ["DEAD", 2, 2, 3, 3, 5, 5, 6, 6]
             ],
             [4, 2, 2, 2]
         ]
