@@ -92,9 +92,6 @@ class Explorer {
        var stat_chunk = document.createElement("div")
        stat_chunk.style.fontSize = "26px"
        stat_chunk.id = this.name + "-stat-" + stat_index
-       stat_chunk.appendChild(lower)
-       stat_chunk.appendChild(current)
-       stat_chunk.appendChild(upper)
 
        var decrement_button = document.createElement("button")
        decrement_button.innerHTML = "-"
@@ -107,6 +104,12 @@ class Explorer {
            current_stat.parentNode.replaceChild(t.get_stat_chunk(stat_index), current_stat)
        })
        stat_chunk.appendChild(decrement_button)
+
+       stat_chunk.appendChild(lower)
+       stat_chunk.appendChild(current)
+       stat_chunk.appendChild(upper)
+
+       
 
        var increment_button = document.createElement("button")
        increment_button.innerHTML = "+"
@@ -144,7 +147,8 @@ class Explorer {
     
 }
 
-const deathstring = "_\uD83D\uDC80_"
+// const deathstring = "_\uD83D\uDC80_"
+const deathstring = "X"
 
 function create_explorers() {
     var explorers_raw = [
