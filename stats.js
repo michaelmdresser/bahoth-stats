@@ -221,6 +221,26 @@ function create_explorers() {
                 [deathstring, 2, 3, 3, 4, 5, 5, 5, 7]
             ],
             [5, 3, 3, 3]
+        ],
+        [
+            "Professor Longfellow",
+            [
+                [deathstring, 2, 2, 4, 4, 5, 5, 6, 6],
+                [deathstring, 1, 2, 3, 4, 5, 5, 6, 6],
+                [deathstring, 1, 3, 3, 4, 5, 5, 6, 7],
+                [deathstring, 4, 5, 5, 5, 5, 6, 7, 8]
+            ],
+            [4, 3, 3, 5]
+        ],
+        [
+            "Jenny LeClerc",
+            [
+                [deathstring, 2, 3, 4, 4, 4, 5, 6, 8],
+                [deathstring, 3, 4, 4, 4, 4, 5, 6, 8],
+                [deathstring, 1, 1, 2, 4, 4, 4, 5, 6],
+                [deathstring, 2, 3, 3, 4, 4, 5, 6, 8]
+            ],
+            [4, 3, 5, 3]
         ]
     ]
 
